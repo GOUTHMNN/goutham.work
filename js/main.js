@@ -49,6 +49,19 @@
     Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   }
 
+  /* ---------- scroll stops: tell the 3D track which project is on screen ---------- */
+  var stops = document.querySelectorAll("[data-stop]");
+  if ("IntersectionObserver" in window && stops.length) {
+    var so = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting || !window.__track) return;
+        var i = +en.target.getAttribute("data-stop");
+        window.__track.setStop(i >= 0 ? i : null);
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    Array.prototype.forEach.call(stops, function (n) { so.observe(n); });
+  }
+
   /* ---------- year ---------- */
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 
@@ -70,7 +83,6 @@
     { label: "About me", hint: "Section", run: go("about") },
     { label: "Photos: in the room", hint: "Section", run: go("moments") },
     { label: "Experience and leadership", hint: "Section", run: go("experience") },
-    { label: "Visit snakelearn.com", hint: "Link", run: open("https://www.snakelearn.com/") },
     { label: "Open the Robork editor", hint: "Link", run: open("https://robork.goutham.work") },
     { label: "Open the trading app", hint: "Link", run: open("https://batman-ai-trading.streamlit.app") },
     { label: "Contact", hint: "Section", run: go("contact") },

@@ -155,6 +155,25 @@
   var rig = { az: -0.6, pol: 0.98, basePol: 0.98, rad: 16.5, vAz: 0, vPol: 0, touched: false };
   var scrollK = 0, focusLane = -1, offsetX = 0, far = false, frame = 0;
 
+  /* ---------- scroll stops: the camera flies to a point on the track for each project ---------- */
+  var STOPS = [0.06, 0.31, 0.56, 0.81];
+  var stop = null;
+  var camPos = new THREE.Vector3(), camTgt = new THREE.Vector3(), dPos = new THREE.Vector3(), dTgt = new THREE.Vector3();
+  var camInit = false;
+  var marker = new THREE.Mesh(new THREE.RingGeometry(0.55, 0.7, 48), new THREE.MeshBasicMaterial({ color: 0xb18cff, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
+  marker.rotation.x = -Math.PI / 2;
+  world.add(marker);
+  function setStop(i) {
+    stop = (i === null || i < 0 || i >= STOPS.length) ? null : i;
+    if (stop !== null) { sampleAt(STOPS[stop], p); marker.position.set(p.x, p.y + 0.02, p.z); }
+    applyOpacity();
+    if (reduce) render(0);
+  }
+  function applyOpacity() {
+    canvas.style.opacity = String(stop !== null ? 0.8 : 1 - scrollK * 0.72);
+  }
+  window.__track = { setStop: setStop };
+
   function resize() {
     var w = window.innerWidth, h = window.innerHeight;
     renderer.setSize(w, h, false);
@@ -191,8 +210,8 @@
   function onScroll() {
     var h = hero ? hero.offsetHeight : window.innerHeight;
     scrollK = Math.max(0, Math.min(1, window.scrollY / h));
-    far = window.scrollY > h * 1.6;
-    canvas.style.opacity = String(1 - scrollK * 0.72);
+    far = window.scrollY > h * 1.6 && stop === null;
+    applyOpacity();
     if (reduce) render(0);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -202,8 +221,7 @@
   var lastLap = -1;
   var RACE_LAPS = 57, LAP_SECONDS = 9;
 
-  var tgt = new THREE.Vector3(0, 0, 0);
-  function render(t) {
+    function render(t) {
     var cars = uniforms.uCars.value;
     if (!reduce) {
       cars.x = (t / LAP_SECONDS) % 1;
@@ -217,11 +235,24 @@
     headGeo.attributes.position.needsUpdate = true;
     uniforms.uTime.value = t;
 
-    var pol = clampPol(rig.pol) * (1 - scrollK * 0.6);
-    var rad = rig.rad + scrollK * 3;
-    camera.position.set(Math.sin(rig.az) * Math.sin(pol) * rad, Math.cos(pol) * rad, Math.cos(rig.az) * Math.sin(pol) * rad);
-    tgt.set(0, -scrollK * 1.2, 0);
-    camera.lookAt(tgt);
+    if (stop !== null) {
+      // Chase view: behind and to the side of the stop, looking along the track.
+      sampleAt(STOPS[stop], p, tg); nrm.set(-tg.z, 0, tg.x).normalize();
+      dTgt.copy(p).addScaledVector(tg, 1.2);
+      dPos.copy(p).addScaledVector(tg, -3.6).addScaledVector(nrm, 2.4); dPos.y += 2.6;
+      marker.material.opacity = 0.55 + 0.35 * Math.sin(t * 3);
+      marker.scale.setScalar(1 + 0.08 * Math.sin(t * 3));
+    } else {
+      var pol = clampPol(rig.pol) * (1 - scrollK * 0.6);
+      var rad = rig.rad + scrollK * 3;
+      dPos.set(Math.sin(rig.az) * Math.sin(pol) * rad, Math.cos(pol) * rad, Math.cos(rig.az) * Math.sin(pol) * rad);
+      dTgt.set(0, -scrollK * 1.2, 0);
+      marker.material.opacity = Math.max(0, marker.material.opacity - 0.05);
+    }
+    if (!camInit || reduce) { camPos.copy(dPos); camTgt.copy(dTgt); camInit = true; }
+    else { var k = stop !== null ? 0.045 : 0.08; camPos.lerp(dPos, k); camTgt.lerp(dTgt, k); }
+    camera.position.copy(camPos);
+    camera.lookAt(camTgt);
     renderer.render(scene, camera);
 
     if (lapEl) {

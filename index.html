@@ -53,7 +53,7 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" data-stop="-1" aria-labelledby="hero-title">
     <div class="hud" aria-hidden="true">
       <span class="hud__live"><i></i>Live</span>
       <span>Lap <b id="hud-lap">01</b>/57</span>
@@ -102,7 +102,8 @@
       </header>
 
       <!-- CompanionSoil -->
-      <article class="project reveal" aria-labelledby="p1">
+      <div class="stop-gap" data-stop="0" aria-hidden="true"><span class="eyebrow">Stop 01 / 04</span><b>CompanionSoil AI</b></div>
+      <article class="project reveal" data-stop="0" aria-labelledby="p1">
         <div class="project__lead">
           <p class="project__meta"><span>2025 to present</span><span>Founder &amp; AI systems architect</span></p>
           <h3 id="p1" class="project__title">CompanionSoil AI</h3>
@@ -137,7 +138,8 @@
       </article>
 
       <!-- F1 -->
-      <article class="project reveal" aria-labelledby="p2">
+      <div class="stop-gap" data-stop="1" aria-hidden="true"><span class="eyebrow">Stop 02 / 04</span><b>F1 tyre strategy</b></div>
+      <article class="project reveal" data-stop="1" aria-labelledby="p2">
         <div class="project__lead">
           <p class="project__meta"><span>2026</span><span>Data science · Python</span></p>
           <h3 id="p2" class="project__title">F1 tyre degradation &amp; pit strategy</h3>
@@ -172,7 +174,8 @@
       </article>
 
       <!-- Restaurant -->
-      <article class="project reveal" aria-labelledby="p3">
+      <div class="stop-gap" data-stop="2" aria-hidden="true"><span class="eyebrow">Stop 03 / 04</span><b>Restaurant platform</b></div>
+      <article class="project reveal" data-stop="2" aria-labelledby="p3">
         <div class="project__lead">
           <p class="project__meta"><span>2026</span><span>Full-stack developer · live client</span></p>
           <h3 id="p3" class="project__title">Restaurant ordering platform</h3>
@@ -201,7 +204,8 @@
       </article>
 
       <!-- Budha PI -->
-      <article class="project reveal" aria-labelledby="p4">
+      <div class="stop-gap" data-stop="3" aria-hidden="true"><span class="eyebrow">Stop 04 / 04</span><b>Budha PI</b></div>
+      <article class="project reveal" data-stop="3" aria-labelledby="p4">
         <div class="project__lead">
           <p class="project__meta"><span>2025</span><span>Embedded AI · Raspberry Pi 5</span></p>
           <h3 id="p4" class="project__title">Budha PI</h3>
@@ -228,23 +232,14 @@
         <p class="tags">Python · local LLM · Piper TTS · faster-whisper · Vosk · SQLite · GPIO/SPI</p>
       </article>
 
-      <div class="more">
+      <div class="more" data-stop="-1">
         <header class="more__head">
           <p class="eyebrow">More projects</p>
           <h3 class="more__title">More I've designed and built</h3>
         </header>
         <div class="more__grid">
           <div class="product reveal">
-            <span class="product__shot"><img src="img/snakelearn.jpg" width="750" height="870" alt="SnakeLearn landing page: Learn Python like playing a game." loading="lazy" decoding="async"></span>
-            <span class="product__body">
-              <span class="product__status">Pre-launch · waitlist open</span>
-              <a class="product__name" href="https://www.snakelearn.com/" target="_blank" rel="noopener">SnakeLearn <span aria-hidden="true">↗</span></a>
-              <span class="product__text">Learn Python like a game. Learners conquer nine "kingdoms" from the basics to machine learning, earn XP and verifiable certificates, and get help from an AI mentor that explains the why.</span>
-              <a class="product__code" href="https://github.com/GOUTHMNN/snake-learn-landing" target="_blank" rel="noopener">Landing page code on GitHub <span aria-hidden="true">↗</span></a>
-            </span>
-          </div>
-          <div class="product reveal">
-            <span class="product__shot"><img src="img/robork.jpg" width="750" height="754" alt="Robork editor: a Raspberry Pi 5 model wired to a DC motor in a 3D workspace." loading="lazy" decoding="async"></span>
+            <span class="product__shot"><img src="img/robork.jpg" width="750" height="511" alt="Robork editor: a Raspberry Pi 5 model wired to a DC motor in a 3D workspace." loading="lazy" decoding="async"></span>
             <span class="product__body">
               <span class="product__status">Prototype · open source</span>
               <a class="product__name" href="https://robork.goutham.work" target="_blank" rel="noopener">Robork <span aria-hidden="true">↗</span></a>
@@ -267,7 +262,7 @@
   </section>
 
   <!-- ================= PIT WALL ================= -->
-  <section class="section section--pit" id="pit-wall" aria-labelledby="pit-title">
+  <section class="section section--pit" id="pit-wall" data-stop="-1" aria-labelledby="pit-title">
     <div class="wrap">
       <header class="section__head">
         <p class="eyebrow">Interactive</p>
@@ -326,7 +321,7 @@
   </section>
 
   <!-- ================= ABOUT ================= -->
-  <section class="section" id="about" aria-labelledby="about-title">
+  <section class="section" id="about" data-stop="-1" aria-labelledby="about-title">
     <div class="wrap about">
       <aside class="card reveal" aria-label="Quick facts">
         <img class="card__photo" src="img/profile-900.jpg" srcset="img/profile-480.jpg 480w, img/profile-900.jpg 900w" sizes="(max-width: 820px) 100vw, 320px" width="900" height="1125" alt="Goutham presenting at a podium at the Guinness Enterprise Centre." loading="lazy" decoding="async">
@@ -348,7 +343,7 @@
   </section>
 
   <!-- ================= OFF THE SCREEN ================= -->
-  <section class="section" id="moments" aria-labelledby="moments-title">
+  <section class="section" id="moments" data-stop="-1" aria-labelledby="moments-title">
     <div class="wrap">
       <header class="section__head">
         <p class="eyebrow">Off the screen</p>
@@ -372,7 +367,7 @@
   </section>
 
   <!-- ================= EXPERIENCE ================= -->
-  <section class="section" id="experience" aria-labelledby="exp-title">
+  <section class="section" id="experience" data-stop="-1" aria-labelledby="exp-title">
     <div class="wrap">
       <header class="section__head">
         <p class="eyebrow">Experience &amp; leadership</p>
@@ -424,7 +419,7 @@
   </section>
 
   <!-- ================= CONTACT ================= -->
-  <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+  <section class="section section--contact" id="contact" data-stop="-1" aria-labelledby="contact-title">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
       <h2 id="contact-title" class="contact__title">Box, box.</h2>
