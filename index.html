@@ -24,7 +24,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/big-shoulders-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/styles.css?v=20261012">
+<link rel="stylesheet" href="css/styles.css?v=20261013">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Goutham Satheesh","url":"https://goutham.work/","jobTitle":"BEng (Hons) Artificial Intelligence student","alumniOf":{"@type":"CollegeOrUniversity","name":"Ulster University"},"address":{"@type":"PostalAddress","addressLocality":"Derry~Londonderry","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/gouthmn","https://github.com/GOUTHMNN"],"knowsAbout":["Artificial intelligence","Machine learning","Data science","Full-stack development","Python"]}
 </script>
@@ -177,41 +177,40 @@
         <p class="tags">Python · pandas · NumPy · SciPy · pytest · FastF1</p>
       </article>
 
-      <!-- Restaurant -->
-      <div class="stop-gap" data-stop="2" aria-hidden="true"><span class="eyebrow">Stop 03 / 04</span><b>Restaurant platform</b></div>
+      <!-- Robork -->
+      <div class="stop-gap" data-stop="2" aria-hidden="true"><span class="eyebrow">Stop 03 / 04</span><b>Robork</b></div>
       <article class="project reveal" data-stop="2" aria-labelledby="p3">
         <div class="project__lead">
-          <p class="project__meta"><span>2026</span><span>Full-stack developer · live client</span></p>
-          <h3 id="p3" class="project__title">Restaurant ordering platform</h3>
-          <p class="project__summary">Online ordering, payments and a live staff dashboard for a restaurant in Derry.</p>
+          <p class="project__meta"><span>2026</span><span>Solo build · TypeScript &amp; Rust</span></p>
+          <h3 id="p3" class="project__title">Robork</h3>
+          <p class="project__summary">A browser-based digital twin for prototyping robots. Wire a Raspberry Pi 5 to motors and sensors in 3D, and it catches the faults that would fry real hardware.</p>
           <ul class="chips" aria-label="Highlights">
-            <li class="chip">Card, Apple Pay &amp; cash</li>
-            <li class="chip chip--win">2 security holes found and closed</li>
+            <li class="chip chip--win">Live in your browser</li>
+            <li class="chip">7 parts with real electrical limits</li>
+            <li class="chip">Deterministic Rust kernel</li>
           </ul>
+          <p class="project__links"><a href="https://robork.goutham.work" target="_blank" rel="noopener">Open the editor <span aria-hidden="true">↗</span></a><a href="https://github.com/GOUTHMNN/robork" target="_blank" rel="noopener">Read the code on GitHub <span aria-hidden="true">↗</span></a></p>
         </div>
         <figure class="viz viz--flow">
-          <figcaption class="viz__title">Where an order's price is decided</figcaption>
+          <figcaption class="viz__title">What happens when you add a wire</figcaption>
           <ol class="flow">
-            <li><b>Customer app</b><span>Sends the basket, never the price</span></li>
-            <li class="is-key"><b>Cloud Function</b><span>Recalculates every total on the server</span></li>
-            <li><b>Stripe</b><span>Webhook signature verified</span></li>
-            <li><b>Staff dashboard</b><span>Order appears in real time</span></li>
+            <li><b>You wire two pins</b><span>In the 3D editor, with undo and autosave</span></li>
+            <li><b>Design check</b><span>Voltage, current, output conflicts, common ground</span></li>
+            <li class="is-key"><b>Fix is dry-run first</b><span>A proposed patch must clear the validator before it's offered</span></li>
+            <li><b>One click applies it</b><span>For example, a level shifter wired in for 5&nbsp;V into a 3.3&nbsp;V pin</span></li>
           </ol>
         </figure>
-        <figure class="photo photo--wide phones">
-          <div class="phones__row">
-            <img src="img/kebab-home-600.jpg" srcset="img/kebab-home-360.jpg 360w, img/kebab-home-600.jpg 600w" sizes="(max-width: 760px) 45vw, 300px" width="600" height="1278" alt="The Kebab House Derry ordering app home screen: delivery or collection toggle, a hero banner, most popular dishes with prices, and menu categories." loading="lazy" decoding="async">
-            <img src="img/kebab-checkout-600.jpg" srcset="img/kebab-checkout-360.jpg 360w, img/kebab-checkout-600.jpg 600w" sizes="(max-width: 760px) 45vw, 300px" width="600" height="1278" alt="The app's checkout screen: order type, delivery address fields, card or cash payment, and a Place Order button showing the total." loading="lazy" decoding="async">
-          </div>
-          <figcaption>The live customer app for Kebab House Derry: the menu and the checkout, where the total shown is recalculated on the server before payment.</figcaption>
+        <figure class="photo photo--wide photo--shot">
+          <img src="img/robork-1600.jpg" srcset="img/robork-800.jpg 800w, img/robork-1600.jpg 1600w" sizes="(max-width: 1180px) 100vw, 1100px" width="1600" height="900" alt="The Robork editor: a parts library on the left, a Raspberry Pi 5 wired to a DC motor in the 3D workspace, and the design check panel flagging a missing common ground." loading="lazy" decoding="async">
+          <figcaption>The live editor running its built-in example: a motor wired straight to a Pi, flagged before anything is powered.</figcaption>
         </figure>
         <div class="case">
-          <div><h4>The problem</h4><p>Customers needed to order and pay online, and staff needed to see every order the moment it landed during a busy service.</p></div>
-          <div><h4>What I built</h4><p>A customer ordering app and a real-time admin dashboard in JavaScript on Firebase Firestore and Cloud Functions, with Stripe payments.</p></div>
-          <div><h4>The result</h4><p>I found and closed two holes: one exposed customer data, one let someone tamper with a discount. Totals are now recalculated server-side under strict access rules.</p></div>
-          <div><h4>What I learned</h4><p>Never trust a price the browser sends you. Check everything that matters on the server.</p></div>
+          <div><h4>The problem</h4><p>Beginners learn robotics by wiring real boards and finding out what's wrong when something burns out. That's slow, expensive and puts people off.</p></div>
+          <div><h4>What I built</h4><p>A React Three Fiber editor where every part carries its real pin voltages and current limits. A validator runs on every change, and a rule-based copilot proposes fixes it has already tested. Underneath sits a Rust simulation kernel on a fixed 1&nbsp;ms tick, compiled for WebAssembly.</p></div>
+          <div><h4>The result</h4><p>A working editor anyone can open at robork.goutham.work, with a parts library, inspector, undo, autosave and project export. The kernel's tests prove two runs produce bit-for-bit identical state.</p></div>
+          <div><h4>What I learned</h4><p>An automatic fix you haven't checked is just a new bug. Every patch has to pass the same validator as the user's own wiring. The README says plainly what isn't built yet.</p></div>
         </div>
-        <p class="tags">JavaScript · Firebase Firestore · Cloud Functions · Stripe</p>
+        <p class="tags">TypeScript · React · React Three Fiber · Zustand · Rust · WebAssembly</p>
       </article>
 
       <!-- Budha PI -->
@@ -250,12 +249,12 @@
         </header>
         <div class="more__grid">
           <div class="product reveal">
-            <span class="product__shot"><img src="img/robork.jpg" width="750" height="511" alt="Robork editor: a Raspberry Pi 5 model wired to a DC motor in a 3D workspace." loading="lazy" decoding="async"></span>
+            <span class="product__shot"><img src="img/restaurant.jpg" width="900" height="506" style="object-position: 50% 0" alt="The Kebab House Derry ordering app: the menu home screen and the checkout screen side by side." loading="lazy" decoding="async"></span>
             <span class="product__body">
-              <span class="product__status">Prototype · open source</span>
-              <a class="product__name" href="https://robork.goutham.work" target="_blank" rel="noopener">Robork <span aria-hidden="true">↗</span></a>
-              <span class="product__text">A browser-based digital twin for prototyping robots. Wire a Raspberry Pi 5 to motors and sensors in 3D; it catches faults like 5&nbsp;V into a 3.3&nbsp;V pin and proposes a tested fix. React Three Fiber front end, deterministic Rust simulation kernel.</span>
-              <span class="product__links"><a class="product__code" href="https://robork.goutham.work" target="_blank" rel="noopener">Open the editor <span aria-hidden="true">↗</span></a><a class="product__code" href="https://github.com/GOUTHMNN/robork" target="_blank" rel="noopener">Code on GitHub <span aria-hidden="true">↗</span></a></span>
+              <span class="product__status">Live client · in production</span>
+              <span class="product__name">Restaurant ordering platform</span>
+              <span class="product__text">Online ordering, card, Apple Pay and cash payments, and a real-time staff dashboard for Kebab House Derry, on Firebase and Stripe. I found and closed two security holes: one exposed customer data, one let someone tamper with a discount. Every total is now recalculated on the server.</span>
+              <span class="product__links"><span class="product__code" style="color: var(--mute); font-weight: 500">JavaScript · Firestore · Cloud Functions · Stripe</span></span>
             </span>
           </div>
           <div class="product reveal">
@@ -466,8 +465,8 @@
 </dialog>
 
 <script src="js/vendor/three.min.js" defer></script>
-<script src="js/scene.js?v=20261012" defer></script>
-<script src="js/pitwall.js?v=20261012" defer></script>
-<script src="js/main.js?v=20261012" defer></script>
+<script src="js/scene.js?v=20261013" defer></script>
+<script src="js/pitwall.js?v=20261013" defer></script>
+<script src="js/main.js?v=20261013" defer></script>
 </body>
 </html>

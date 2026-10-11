@@ -394,3 +394,4 @@ input[type="range"] { width: 100%; accent-color: var(--purple); min-height: 28px
 .phones__row { display: flex; justify-content: center; gap: clamp(12px, 3vw, 32px); }
 .phones__row img, .photo--wide.phones .phones__row img { width: min(45%, 300px); height: auto; aspect-ratio: auto; object-fit: contain; border-radius: 28px; border: 6px solid #1c1f26; box-shadow: 0 20px 50px rgb(0 0 0 / .45); background: #000; }
 .phones figcaption { text-align: center; }
+.photo--shot img, .photo--wide.photo--shot img { aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 50%; }
