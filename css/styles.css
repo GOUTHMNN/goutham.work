@@ -350,6 +350,8 @@ input[type="range"] { width: 100%; accent-color: var(--purple); min-height: 28px
 .photo--wide { grid-column: 1 / -1; }
 .photo--wide img { aspect-ratio: 21 / 9; object-position: 50% 40%; }
 @media (max-width: 760px) { .photo--wide img { aspect-ratio: 4 / 3; object-position: 62% 50%; } }
+.photo--chart { max-width: 640px; margin-inline: auto; width: 100%; }
+.photo--chart img, .photo--wide.photo--chart img { aspect-ratio: auto; height: auto; object-fit: contain; background: #1a1a1a; }
 .gallery { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); grid-template-areas: "a b" "c c"; gap: 22px; }
 .photo--a { grid-area: a; } .photo--b { grid-area: b; } .photo--c { grid-area: c; }
 .photo--a img, .photo--b img { aspect-ratio: 4 / 3; }

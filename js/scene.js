@@ -20,7 +20,7 @@
 
   var BG = 0x0a0c10;
   renderer.setClearColor(BG, 1);
-  var DPR = Math.min(window.devicePixelRatio || 1, 1.75);
+  var DPR = Math.min(window.devicePixelRatio || 1, small ? 1.25 : 1.75);
   renderer.setPixelRatio(DPR);
 
   var scene = new THREE.Scene();
