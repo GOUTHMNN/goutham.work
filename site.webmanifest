@@ -1,0 +1,12 @@
+{
+  "name": "Goutham Satheesh",
+  "short_name": "Goutham",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0a0c10",
+  "theme_color": "#0a0c10",
+  "icons": [
+    { "src": "/assets/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/assets/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

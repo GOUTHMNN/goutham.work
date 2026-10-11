@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Goutham Satheesh | AI and Software Engineering</title>
+<meta name="description" content="Goutham Satheesh, BEng AI student at Ulster University. AI systems, data science and full-stack software that real people use. Seeking a 12-month placement from summer 2027.">
+<link rel="canonical" href="https://goutham.work/">
+<meta name="theme-color" content="#0a0c10">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://goutham.work/">
+<meta property="og:title" content="Goutham Satheesh | AI and Software Engineering">
+<meta property="og:description" content="AI systems, data science and full-stack software that real people use. Seeking a 12-month placement from summer 2027.">
+<meta property="og:image" content="https://goutham.work/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Goutham Satheesh | AI and Software Engineering">
+<meta name="twitter:description" content="AI systems, data science and full-stack software that real people use.">
+<meta name="twitter:image" content="https://goutham.work/assets/og.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="fonts/big-shoulders-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Goutham Satheesh","url":"https://goutham.work/","jobTitle":"BEng (Hons) Artificial Intelligence student","alumniOf":{"@type":"CollegeOrUniversity","name":"Ulster University"},"address":{"@type":"PostalAddress","addressLocality":"Derry~Londonderry","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/gouthmn","https://github.com/GOUTHMNN"],"knowsAbout":["Artificial intelligence","Machine learning","Data science","Full-stack development","Python"]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="nogl-bg" aria-hidden="true"></div>
+
+<header class="bar" id="top">
+  <div class="bar__inner">
+    <a class="brand" href="#top" aria-label="Goutham Satheesh, back to top"><span class="brand__mark" aria-hidden="true">GS</span><span class="brand__name">goutham.work</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#pit-wall">Pit wall</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" type="button" id="open-palette" aria-haspopup="dialog" aria-label="Open quick menu">
+      <span class="kbd" aria-hidden="true"><span class="kbd__mod">Ctrl</span>K</span><span class="menu-btn__label">Menu</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hud" aria-hidden="true">
+      <span class="hud__live"><i></i>Live</span>
+      <span>Lap <b id="hud-lap">01</b>/57</span>
+      <span class="hud__wide">21,124 laps rendered</span>
+    </div>
+
+    <div class="hero__main">
+      <p class="eyebrow">BEng (Hons) Artificial Intelligence · Ulster University</p>
+      <h1 id="hero-title" class="hero__title"><span>Goutham</span><span>Satheesh</span></h1>
+      <p class="hero__lede">I build AI systems and software that real people rely on, then I test them on data they have never seen.</p>
+      <p class="status"><span class="status__dot" aria-hidden="true"></span>Available for a 12-month industrial placement from summer 2027</p>
+      <div class="cta">
+        <a class="btn btn--primary" href="#work">See my work</a>
+        <a class="btn" href="cv/Goutham-Satheesh-CV.pdf" target="_blank" rel="noopener">Download CV <span class="btn__meta">PDF</span></a>
+      </div>
+    </div>
+
+    <aside class="tower" aria-label="Key results">
+      <p class="tower__head"><span>Timing</span><span>Result</span></p>
+      <ol>
+        <li class="is-fastest"><span class="tower__k">AWS GenAI Hackathon 2025</span><span class="tower__v">1st<small>of 700+ unis</small></span></li>
+        <li><span class="tower__k">Year 1 average</span><span class="tower__v">82%<small>Dean's List</small></span></li>
+        <li><span class="tower__k">CompanionSoil AI</span><span class="tower__v">3<small>farms live</small></span></li>
+        <li><span class="tower__k">F1 strategy model</span><span class="tower__v">21,124<small>laps</small></span></li>
+      </ol>
+    </aside>
+
+    <div class="legend">
+      <p class="legend__hint"><span class="drag-hint">Drag to spin the circuit.</span> Highlight a compound:</p>
+      <div class="legend__btns" role="group" aria-label="Highlight a tyre compound">
+        <button type="button" class="lane lane--S" data-lane="0" aria-pressed="false">Soft</button>
+        <button type="button" class="lane lane--M" data-lane="1" aria-pressed="false">Medium</button>
+        <button type="button" class="lane lane--H" data-lane="2" aria-pressed="false">Hard</button>
+      </div>
+      <p class="legend__cap">Each point is one of the 21,124 laps in my F1 dataset. The layout is artistic.</p>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Selected work</p>
+        <h2 id="work-title">Four builds, end to end</h2>
+        <p class="section__intro">Each one shipped to real users or tested against real data. Here's the problem, what I built, what happened and what I'd tell myself next time.</p>
+      </header>
+
+      <!-- CompanionSoil -->
+      <article class="project reveal" aria-labelledby="p1">
+        <div class="project__lead">
+          <p class="project__meta"><span>2025 to present</span><span>Founder &amp; AI systems architect</span></p>
+          <h3 id="p1" class="project__title">CompanionSoil AI</h3>
+          <p class="project__summary">An AI farming assistant that tells smallholder farmers how much to water and fertilise, in their own language.</p>
+          <ul class="chips" aria-label="Highlights">
+            <li class="chip chip--win">1st of 700+ universities, AWS GenAI Hackathon 2025</li>
+            <li class="chip">Live on 3 farms</li>
+            <li class="chip">40+ shipped versions</li>
+          </ul>
+          <p class="project__links"><a href="https://companionsoil.com" target="_blank" rel="noopener">companionsoil.com <span aria-hidden="true">↗</span></a></p>
+        </div>
+        <figure class="viz viz--impact">
+          <figcaption class="viz__title">Modelled impact per farm</figcaption>
+          <div class="bars">
+            <div class="bars__row"><span class="bars__k">Water</span><span class="bars__track"><span class="bars__base"></span><span class="bars__val" style="--v:60%"></span></span><b>−40%</b></div>
+            <div class="bars__row"><span class="bars__k">Chemicals</span><span class="bars__track"><span class="bars__base"></span><span class="bars__val" style="--v:70%"></span></span><b>−30%</b></div>
+            <div class="bars__row"><span class="bars__k">Time to grow</span><span class="bars__track"><span class="bars__base"></span><span class="bars__val" style="--v:85%"></span></span><b>15% faster</b></div>
+          </div>
+          <p class="viz__note"><span class="key key--base"></span>Before <span class="key key--val"></span>With CompanionSoil. Modelled figures, not a field trial.</p>
+        </figure>
+        <figure class="photo photo--wide">
+          <img src="img/pitch-1600.jpg" srcset="img/pitch-800.jpg 800w, img/pitch-1600.jpg 1600w" sizes="(max-width: 1180px) 100vw, 1100px" width="1600" height="1067" alt="Goutham presenting a CompanionSoil slide on farmer research to a seated audience." loading="lazy" decoding="async">
+          <figcaption>Pitching CompanionSoil at the Guinness Enterprise Centre, Dublin. The slide shows what 200+ conversations with farmers taught me.</figcaption>
+        </figure>
+        <div class="case">
+          <div><h4>The problem</h4><p>I grew up watching farmers in Kerala, my grandfather among them, guess at water and fertiliser. Bad guesses cost the people with the least safety net the most.</p></div>
+          <div><h4>What I built</h4><p>A platform I designed and shipped alone: Next.js, FastAPI and PostgreSQL on Google Cloud Run via Docker and GitHub Actions. Evapotranspiration models drive irrigation; Gemini reads soil photos in several languages; a geospatial pipeline pulls satellite, weather and FAO data.</p></div>
+          <div><h4>The result</h4><p>Running on three working farms, and first place against teams from more than 700 universities.</p></div>
+          <div><h4>What I learned</h4><p>A feature isn't finished until it works on someone else's day. Most of the 40+ versions came from farmers telling me what wasn't working.</p></div>
+        </div>
+        <p class="tags">Next.js · FastAPI · PostgreSQL · Docker · Cloud Run · GitHub Actions · Gemini API</p>
+      </article>
+
+      <!-- F1 -->
+      <article class="project reveal" aria-labelledby="p2">
+        <div class="project__lead">
+          <p class="project__meta"><span>2026</span><span>Data science · Python</span></p>
+          <h3 id="p2" class="project__title">F1 tyre degradation &amp; pit strategy</h3>
+          <p class="project__summary">A model that separates real tyre wear from fuel, traffic and safety cars, then decides when to stop.</p>
+          <ul class="chips" aria-label="Highlights">
+            <li class="chip">21,124 laps · 18 Grands Prix</li>
+            <li class="chip chip--win">80% stop counts right on unseen races</li>
+            <li class="chip">37 automated tests</li>
+          </ul>
+          <p class="project__links"><a href="https://github.com/GOUTHMNN/f1-tyre-strategy" target="_blank" rel="noopener">Read the code on GitHub <span aria-hidden="true">↗</span></a><a href="#pit-wall">Play with it on the pit wall <span aria-hidden="true">↓</span></a></p>
+        </div>
+        <figure class="viz viz--deg">
+          <figcaption class="viz__title">Lap time across a one-stop race</figcaption>
+          <svg viewBox="0 0 320 150" role="img" aria-label="Lap times rise as tyres wear, drop at the pit stop, then rise again more slowly on the harder tyre.">
+            <g class="g"><line x1="28" x2="312" y1="20" y2="20"/><line x1="28" x2="312" y1="62" y2="62"/><line x1="28" x2="312" y1="104" y2="104"/></g>
+            <text class="t" x="22" y="24" text-anchor="end">slow</text><text class="t" x="22" y="108" text-anchor="end">fast</text>
+            <path class="s1" d="M30 112 C 70 104, 110 84, 140 48"/>
+            <line class="pit" x1="146" x2="146" y1="12" y2="128"/>
+            <text class="t t--pit" x="152" y="16">PIT</text>
+            <path class="s2" d="M152 96 C 200 90, 260 76, 310 60"/>
+            <text class="t" x="30" y="142">Lap 1</text><text class="t" x="310" y="142" text-anchor="end">Lap 57</text>
+          </svg>
+          <p class="viz__note"><span class="key key--soft"></span>Soft <span class="key key--hard"></span>Hard. Shape only, not fitted values.</p>
+        </figure>
+        <div class="case">
+          <div><h4>The problem</h4><p>A lap time mixes tyre wear with fuel burn, traffic, safety cars and out-laps. The hard part is pulling real degradation out of all that noise.</p></div>
+          <div><h4>What I built</h4><p>A Python pipeline that strips in-laps, out-laps, safety-car periods and outliers, then fits fuel and tyre effects together with robust Theil-Sen regression. It measures pit-lane loss from the laps themselves and refuses to answer when the data can't separate the two.</p></div>
+          <div><h4>The result</h4><p>On seasons it had never seen, it called the number of stops right in 80% of dry races. 37 tests check it against simulated races with known answers.</p></div>
+          <div><h4>What I learned</h4><p>Its exact pit-lap advice only just beat copying last year's stop (6.0 vs 6.5 laps off) and tends to stop late, because it can't see traffic. A curvature term was real but predicted worse, so I cut it. Both findings are in the write-up.</p></div>
+        </div>
+        <p class="tags">Python · pandas · NumPy · SciPy · pytest · FastF1</p>
+      </article>
+
+      <!-- Restaurant -->
+      <article class="project reveal" aria-labelledby="p3">
+        <div class="project__lead">
+          <p class="project__meta"><span>2026</span><span>Full-stack developer · live client</span></p>
+          <h3 id="p3" class="project__title">Restaurant ordering platform</h3>
+          <p class="project__summary">Online ordering, payments and a live staff dashboard for a restaurant in Derry.</p>
+          <ul class="chips" aria-label="Highlights">
+            <li class="chip">Card, Apple Pay &amp; cash</li>
+            <li class="chip chip--win">2 security holes found and closed</li>
+          </ul>
+        </div>
+        <figure class="viz viz--flow">
+          <figcaption class="viz__title">Where an order's price is decided</figcaption>
+          <ol class="flow">
+            <li><b>Customer app</b><span>Sends the basket, never the price</span></li>
+            <li class="is-key"><b>Cloud Function</b><span>Recalculates every total on the server</span></li>
+            <li><b>Stripe</b><span>Webhook signature verified</span></li>
+            <li><b>Staff dashboard</b><span>Order appears in real time</span></li>
+          </ol>
+        </figure>
+        <div class="case">
+          <div><h4>The problem</h4><p>Customers needed to order and pay online, and staff needed to see every order the moment it landed during a busy service.</p></div>
+          <div><h4>What I built</h4><p>A customer ordering app and a real-time admin dashboard in JavaScript on Firebase Firestore and Cloud Functions, with Stripe payments.</p></div>
+          <div><h4>The result</h4><p>I found and closed two holes: one exposed customer data, one let someone tamper with a discount. Totals are now recalculated server-side under strict access rules.</p></div>
+          <div><h4>What I learned</h4><p>Never trust a price the browser sends you. Check everything that matters on the server.</p></div>
+        </div>
+        <p class="tags">JavaScript · Firebase Firestore · Cloud Functions · Stripe</p>
+      </article>
+
+      <!-- Budha PI -->
+      <article class="project reveal" aria-labelledby="p4">
+        <div class="project__lead">
+          <p class="project__meta"><span>2025</span><span>Embedded AI · Raspberry Pi 5</span></p>
+          <h3 id="p4" class="project__title">Budha PI</h3>
+          <p class="project__summary">An offline voice assistant with a face and moods, running entirely on a Raspberry Pi 5.</p>
+          <ul class="chips" aria-label="Highlights">
+            <li class="chip chip--win">About 10× faster replies</li>
+            <li class="chip">No internet needed</li>
+          </ul>
+        </div>
+        <figure class="viz viz--speed">
+          <figcaption class="viz__title">Time to reply, relative</figcaption>
+          <div class="bars">
+            <div class="bars__row"><span class="bars__k">First version</span><span class="bars__track"><span class="bars__val bars__val--slow" style="--v:100%"></span></span><b>1×</b></div>
+            <div class="bars__row"><span class="bars__k">After profiling</span><span class="bars__track"><span class="bars__val" style="--v:10%"></span></span><b>~0.1×</b></div>
+          </div>
+          <p class="pipe" aria-label="Pipeline"><span>Mic</span><span>Whisper</span><span class="is-key">gemma3:1b</span><span>Piper</span><span>Speaker</span></p>
+        </figure>
+        <div class="case">
+          <div><h4>The problem</h4><p>The first version was too slow to hold a natural conversation on such small hardware.</p></div>
+          <div><h4>What I built</h4><p>A local language model with Piper speech and faster-whisper and Vosk recognition, plus a servo head-tilt and TFT face driven by an emotional state machine over GPIO and SPI. SQLite gives it the last five turns of memory.</p></div>
+          <div><h4>The result</h4><p>I timed every stage, found the bottleneck in the language model and moved to gemma3:1b. Replies got about ten times faster.</p></div>
+          <div><h4>What I learned</h4><p>Measure before you optimise. The slow part wasn't where I first guessed.</p></div>
+        </div>
+        <p class="tags">Python · local LLM · Piper TTS · faster-whisper · Vosk · SQLite · GPIO/SPI</p>
+      </article>
+
+      <div class="more">
+        <header class="more__head">
+          <p class="eyebrow">More projects</p>
+          <h3 class="more__title">More I've designed and built</h3>
+        </header>
+        <div class="more__grid">
+          <div class="product reveal">
+            <span class="product__shot"><img src="img/snakelearn.jpg" width="750" height="870" alt="SnakeLearn landing page: Learn Python like playing a game." loading="lazy" decoding="async"></span>
+            <span class="product__body">
+              <span class="product__status">Pre-launch · waitlist open</span>
+              <a class="product__name" href="https://www.snakelearn.com/" target="_blank" rel="noopener">SnakeLearn <span aria-hidden="true">↗</span></a>
+              <span class="product__text">Learn Python like a game. Learners conquer nine "kingdoms" from the basics to machine learning, earn XP and verifiable certificates, and get help from an AI mentor that explains the why.</span>
+              <a class="product__code" href="https://github.com/GOUTHMNN/snake-learn-landing" target="_blank" rel="noopener">Landing page code on GitHub <span aria-hidden="true">↗</span></a>
+            </span>
+          </div>
+          <div class="product reveal">
+            <span class="product__shot"><img src="img/robork.jpg" width="750" height="754" alt="Robork editor: a Raspberry Pi 5 model wired to a DC motor in a 3D workspace." loading="lazy" decoding="async"></span>
+            <span class="product__body">
+              <span class="product__status">Prototype · open source</span>
+              <a class="product__name" href="https://github.com/GOUTHMNN/robork" target="_blank" rel="noopener">Robork <span aria-hidden="true">↗</span></a>
+              <span class="product__text">A browser-based digital twin for prototyping robots. Wire a Raspberry Pi 5 to motors and sensors in 3D; it catches faults like 5&nbsp;V into a 3.3&nbsp;V pin and proposes a tested fix. React Three Fiber front end, deterministic Rust simulation kernel.</span>
+              <a class="product__code" href="https://github.com/GOUTHMNN/robork" target="_blank" rel="noopener">Code on GitHub <span aria-hidden="true">↗</span></a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <p class="also reveal"><span class="eyebrow">Also built</span> An end-to-end stock-signal system (LSTM with attention, XGBoost, walk-forward validation, backtester, dashboard). Its first result, 60% accuracy, turned out to be the "always predict down" baseline; once I fixed the evaluation, the model had no edge, and the write-up says so. <a href="https://github.com/GOUTHMNN/batman-ai-trading" target="_blank" rel="noopener">Code and results on GitHub <span aria-hidden="true">↗</span></a></p>
+    </div>
+  </section>
+
+  <!-- ================= PIT WALL ================= -->
+  <section class="section section--pit" id="pit-wall" aria-labelledby="pit-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Interactive</p>
+        <h2 id="pit-title">The pit wall</h2>
+        <p class="section__intro">A playable, simplified version of the strategy maths behind my F1 project. Pick two compounds and a pit lap, and watch the race time move.</p>
+      </header>
+
+      <div class="pit">
+        <form class="pit__controls" id="pit-form" aria-label="Strategy controls" novalidate>
+          <fieldset class="seg">
+            <legend>First stint</legend>
+            <div class="seg__opts">
+              <input type="radio" name="c1" id="c1-S" value="S" checked><label for="c1-S" class="cmp cmp--S">Soft</label>
+              <input type="radio" name="c1" id="c1-M" value="M"><label for="c1-M" class="cmp cmp--M">Medium</label>
+              <input type="radio" name="c1" id="c1-H" value="H"><label for="c1-H" class="cmp cmp--H">Hard</label>
+            </div>
+          </fieldset>
+          <fieldset class="seg">
+            <legend>Second stint</legend>
+            <div class="seg__opts">
+              <input type="radio" name="c2" id="c2-S" value="S"><label for="c2-S" class="cmp cmp--S">Soft</label>
+              <input type="radio" name="c2" id="c2-M" value="M"><label for="c2-M" class="cmp cmp--M">Medium</label>
+              <input type="radio" name="c2" id="c2-H" value="H" checked><label for="c2-H" class="cmp cmp--H">Hard</label>
+            </div>
+          </fieldset>
+          <div class="slider">
+            <label for="pit-lap">Pit on lap <output id="pit-lap-out" for="pit-lap">20</output> of <span id="race-laps">57</span></label>
+            <input type="range" id="pit-lap" min="2" max="56" value="20" step="1">
+          </div>
+          <button class="btn btn--primary" type="button" id="pit-optimise">Find the fastest lap to pit</button>
+        </form>
+
+        <div class="pit__board">
+          <div class="readout" aria-live="polite" id="pit-readout">
+            <div class="readout__item"><span class="readout__label">Race time</span><span class="readout__val" id="r-total">-</span></div>
+            <div class="readout__item"><span class="readout__label">Vs fastest one-stop</span><span class="readout__val" id="r-delta">-</span></div>
+            <div class="readout__item"><span class="readout__label">Fastest pit lap</span><span class="readout__val" id="r-best">-</span></div>
+          </div>
+          <p class="rule-note" id="pit-rule" hidden>F1 rules require two different dry compounds in a race. Pick a different tyre for one of the stints.</p>
+          <div class="chart" role="img" aria-labelledby="chart-cap">
+            <svg id="pit-chart" viewBox="0 0 640 280" preserveAspectRatio="none"></svg>
+          </div>
+          <p class="chart__cap" id="chart-cap">Lap time for every lap of the race. Each stint slows as its tyres wear; the stop resets them.</p>
+        </div>
+      </div>
+
+      <details class="method">
+        <summary>How this works, and what it leaves out</summary>
+        <div class="method__body">
+          <p>Each lap time is a base pace plus the compound's pace offset plus its wear rate multiplied by the tyre's age. A stop adds a fixed pit-lane loss. The simulator tries every pit lap and finds the fastest.</p>
+          <p>Fuel burn is left out because it slows every strategy equally, so it cancels when comparing them. Wear is a straight line: in my real model a curved term tested significant but predicted worse, so I kept it linear.</p>
+          <p class="method__warn">These numbers are illustrative, chosen to behave like a typical dry race. They are not fitted values from my model, and real strategy also depends on traffic and safety cars.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <aside class="card reveal" aria-label="Quick facts">
+        <img class="card__photo" src="img/profile-900.jpg" srcset="img/profile-480.jpg 480w, img/profile-900.jpg 900w" sizes="(max-width: 820px) 100vw, 320px" width="900" height="1125" alt="Goutham presenting at a podium at the Guinness Enterprise Centre." loading="lazy" decoding="async">
+        <dl class="card__facts">
+          <div><dt>From</dt><dd>Kerala, India</dd></div>
+          <div><dt>Based</dt><dd>Derry~Londonderry</dd></div>
+          <div><dt>Studying</dt><dd>BEng AI, Year 2</dd></div>
+          <div><dt>Available</dt><dd>Summer 2027, 12 months</dd></div>
+        </dl>
+      </aside>
+      <div class="about__text">
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">I come back from setbacks</h2>
+        <p>I'm from Kerala in India, the son of two teachers. In 2025 I moved to Derry~Londonderry to study Artificial Intelligence at Ulster University, and finished my first year with an 82% average and a place on the Dean's List.</p>
+        <p>Before university I boxed at national level. I tore my knee in the final of a state championship and spent weeks in hospital, then rebuilt one step at a time and went back to national competition. I approach hard problems the same way.</p>
+        <p>I'm in second year now, learning Java and algorithms, and looking for a placement year where I can work on real systems alongside people who know more than I do.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OFF THE SCREEN ================= -->
+  <section class="section" id="moments" aria-labelledby="moments-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Off the screen</p>
+        <h2 id="moments-title">In the room</h2>
+      </header>
+      <div class="gallery">
+        <figure class="photo photo--a reveal">
+          <img src="img/ideate-1600.jpg" srcset="img/ideate-800.jpg 800w, img/ideate-1600.jpg 1600w" sizes="(max-width: 820px) 100vw, 60vw" width="1600" height="1067" alt="Goutham receiving an IDEATE Ireland certificate of completion for CompanionSoil." loading="lazy" decoding="async">
+          <figcaption>Completing IDEATE Ireland with CompanionSoil.</figcaption>
+        </figure>
+        <figure class="photo photo--b reveal">
+          <img src="img/filming-1600.jpg" srcset="img/filming-800.jpg 800w, img/filming-1600.jpg 1600w" sizes="(max-width: 820px) 100vw, 40vw" width="1600" height="1067" alt="Goutham being filmed for an interview on the lawn at Ulster University's Magee campus." loading="lazy" decoding="async">
+          <figcaption>On camera at Ulster University's Magee campus.</figcaption>
+        </figure>
+        <figure class="photo photo--c reveal">
+          <img src="img/mancity-1600.jpg" srcset="img/mancity-800.jpg 800w, img/mancity-1600.jpg 1600w" sizes="(max-width: 1180px) 100vw, 1100px" width="1600" height="900" alt="Goutham on stage with his teammates, holding a microphone, presenting to an audience." loading="lazy" decoding="async">
+          <figcaption>Presenting with my team at the Manchester City F.C. Sustainable Innovation Challenge 2026, which we won.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience" aria-labelledby="exp-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">Experience &amp; leadership</p>
+        <h2 id="exp-title">Where I've led people</h2>
+      </header>
+      <ol class="timeline">
+        <li class="reveal"><span class="timeline__when">Oct 2025 to now</span><div><h3>Shift Runner (Team Leader), KFC</h3><p>Lead shift teams of 40+ staff in a time-critical environment and train 5 to 10 new starters a month.</p></div></li>
+        <li class="reveal"><span class="timeline__when">Aug 2026 to now</span><div><h3>Campus Ambassador, Ulster University</h3><p>Represent the university at recruitment, media and outreach events.</p></div></li>
+        <li class="reveal"><span class="timeline__when">Nov 2025 to now</span><div><h3>Global Buddy, Ulster University</h3><p>Support 15 to 20 international students each semester through academic and cultural life.</p></div></li>
+        <li class="reveal"><span class="timeline__when">2025 to now</span><div><h3>Elected Course Representative, BEng AI</h3><p>Speak for my year group with staff on teaching and student experience.</p></div></li>
+        <li class="reveal"><span class="timeline__when">Nov 2025 to Jun 2026</span><div><h3>Student Panel Member, Student Success Centre</h3><p>Represented student views in monthly panels shaping policy for 30,000+ students.</p></div></li>
+        <li class="reveal"><span class="timeline__when">Jul 2024 to Mar 2025</span><div><h3>Sales Assistant, National Insurance Co., Kerala</h3><p>Advised 20 to 30 clients a week and resolved complex policy enquiries.</p></div></li>
+        <li class="reveal"><span class="timeline__when">2022</span><div><h3>Corporal, National Cadet Corps</h3><p>Led about 400 cadets at camp, contained a disease outbreak and received the Best Cadet award.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= RECOGNITION + TOOLBOX ================= -->
+  <section class="section" aria-label="Recognition and skills">
+    <div class="wrap split">
+      <div class="reveal">
+        <h2>Recognition</h2>
+        <ul class="list">
+          <li><strong>1st place</strong>, AWS Generative AI Hackathon 2025 (700+ universities)</li>
+          <li><strong>Winner</strong>, Manchester City F.C. Sustainable Innovation Challenge 2026</li>
+          <li><strong>Finalist</strong>, IDEATE Ireland 2026</li>
+          <li><strong>Dean's List</strong> and <strong>Graduate Award</strong>, Ulster University</li>
+          <li><strong>National-level boxer</strong>, Kerala State Amateur Boxing Federation</li>
+          <li><strong>Rajya Puraskar</strong>, Governor of Kerala (Bharat Scouts and Guides)</li>
+        </ul>
+        <h3 class="sub">Learning beyond my degree</h3>
+        <ul class="list list--quiet">
+          <li>ISRC-CN3 Summer School on neuro-inspired AI, Ulster University (2026)</li>
+          <li>Cognitive Psychology and Neuropsychology, University of Cambridge (in progress)</li>
+          <li>Microsoft Certified: Azure Fundamentals</li>
+          <li>AWS Prompt Engineering · NVIDIA Deep Learning · PMI Ethics in Generative AI</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h2>Toolbox</h2>
+        <dl class="tools">
+          <div><dt>Languages</dt><dd>Python · JavaScript · SQL · C · Java (learning) · HTML/CSS</dd></div>
+          <div><dt>AI &amp; data</dt><dd>Machine learning · deep learning · XGBoost · time-series forecasting · statistical modelling · LLM APIs · local LLMs</dd></div>
+          <div><dt>Building &amp; shipping</dt><dd>Next.js · FastAPI · REST APIs · PostgreSQL · Firebase · Docker · Google Cloud · AWS · GitHub Actions · Git · Linux · pytest</dd></div>
+          <div><dt>Hardware</dt><dd>Raspberry Pi · GPIO/SPI · embedded C</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title" class="contact__title">Box, box.</h2>
+      <p class="contact__lede">On F1 team radio that means "come in now". I'm looking for a 12-month industrial placement starting summer 2027, and email is the quickest way to reach me.</p>
+      <div class="contact__email">
+        <a href="mailto:Satheesh-G@ulster.ac.uk" id="email-link">Satheesh-G@ulster.ac.uk</a>
+        <button class="btn" type="button" id="copy-email">Copy email</button>
+        <span class="toast" id="copy-toast" role="status" aria-live="polite"></span>
+      </div>
+      <ul class="contact__links">
+        <li><a href="https://www.linkedin.com/in/gouthmn" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://github.com/GOUTHMNN" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+        <li><a href="cv/Goutham-Satheesh-CV.pdf" target="_blank" rel="noopener">CV (PDF) <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <p>© <span id="year">2026</span> Goutham Satheesh · Derry~Londonderry, Northern Ireland</p>
+    <p>Hand-built with HTML, CSS, JavaScript and WebGL. No trackers.</p>
+  </div>
+</footer>
+
+<dialog class="palette" id="palette" aria-label="Quick menu">
+  <div class="palette__box">
+    <label class="sr-only" for="palette-input">Search the quick menu</label>
+    <input id="palette-input" class="palette__input" type="text" placeholder="Jump to a section or run an action…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+    <ul class="palette__list" id="palette-list" role="listbox" aria-label="Results"></ul>
+    <p class="palette__hint"><span class="kbd">↑</span><span class="kbd">↓</span> to move · <span class="kbd">Enter</span> to choose · <span class="kbd">Esc</span> to close</p>
+  </div>
+</dialog>
+
+<script src="js/vendor/three.min.js" defer></script>
+<script src="js/scene.js" defer></script>
+<script src="js/pitwall.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
