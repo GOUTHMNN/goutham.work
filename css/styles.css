@@ -359,8 +359,9 @@ input[type="range"] { width: 100%; accent-color: var(--purple); min-height: 28px
 .more { padding-top: clamp(36px, 5vw, 56px); border-top: 1px solid var(--line); }
 .more__head { display: grid; gap: 8px; margin-bottom: 24px; }
 .more__title { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.6rem); line-height: .95; }
-.more__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-@media (max-width: 980px) { .more__grid { grid-template-columns: minmax(0, 1fr); } }
+.more__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+@media (max-width: 1080px) { .more__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .more__grid { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 760px) { .more__grid { grid-template-columns: minmax(0, 1fr); } }
 .product { position: relative; display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); text-decoration: none; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
 .product:hover { border-color: var(--mute); transform: translateY(-2px); }
@@ -375,3 +376,8 @@ input[type="range"] { width: 100%; accent-color: var(--purple); min-height: 28px
 .product__name:focus-visible { outline: none; }
 .product__name:focus-visible::after { outline: 3px solid var(--accent); outline-offset: 2px; }
 .product__code { position: relative; z-index: 1; justify-self: start; margin-top: 4px; color: var(--purple); font-weight: 600; font-size: .9rem; text-underline-offset: 4px; }
+.product__links { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+/* stacked cards in the 3-up grid */
+.more__grid .product { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
+.more__grid .product__shot { border-right: 0; border-bottom: 1px solid var(--line); }
+.more__grid .product__shot img { height: 210px; max-height: none; }
