@@ -155,25 +155,53 @@
   var rig = { az: -0.6, pol: 0.98, basePol: 0.98, rad: 16.5, vAz: 0, vPol: 0, touched: false };
   var scrollK = 0, focusLane = -1, offsetX = 0, far = false, frame = 0;
 
-  /* ---------- scroll stops: the camera flies to a point on the track for each project ---------- */
+  /* ---------- scroll fly-through: inside the work section the camera rides the track,
+     reaching a marked point for each project as its heading crosses the screen ---------- */
   var STOPS = [0.06, 0.31, 0.56, 0.81];
-  var stop = null;
+  var stop = null, ride = null, inWork = false, viewWork = null;
   var camPos = new THREE.Vector3(), camTgt = new THREE.Vector3(), dPos = new THREE.Vector3(), dTgt = new THREE.Vector3();
   var camInit = false;
-  var marker = new THREE.Mesh(new THREE.RingGeometry(0.55, 0.7, 48), new THREE.MeshBasicMaterial({ color: 0xb18cff, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
-  marker.rotation.x = -Math.PI / 2;
-  world.add(marker);
-  function setStop(i) {
-    stop = (i === null || i < 0 || i >= STOPS.length) ? null : i;
-    if (stop !== null) { sampleAt(STOPS[stop], p); marker.position.set(p.x, p.y + 0.02, p.z); }
-    applyOpacity();
-    if (reduce) render(0);
-  }
+  var markers = STOPS.map(function (u) {
+    var m = new THREE.Mesh(new THREE.RingGeometry(0.5, 0.66, 48), new THREE.MeshBasicMaterial({ color: 0xb18cff, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
+    m.rotation.x = -Math.PI / 2;
+    sampleAt(u, p); m.position.set(p.x, p.y + 0.03, p.z);
+    world.add(m);
+    return m;
+  });
+  var work = document.getElementById("work");
+  var gaps = Array.prototype.slice.call(document.querySelectorAll(".stop-gap"));
+  function setStop(i) { stop = (i === null || i < 0 || i >= STOPS.length) ? null : i; }
   function applyOpacity() {
-    canvas.style.opacity = String(stop !== null ? 0.8 : 1 - scrollK * 0.72);
+    canvas.style.opacity = String(inWork ? 1 : 1 - scrollK * 0.72);
+  }
+  // Map the middle of the screen to a position on the track, piecewise between the stop headings.
+  function rideFromScroll() {
+    if (!work || !gaps.length) return null;
+    var mid = window.scrollY + window.innerHeight * 0.5;
+    var wr = work.getBoundingClientRect(), top = wr.top + window.scrollY, bottom = wr.bottom + window.scrollY;
+    if (mid < top - window.innerHeight * 0.25 || mid > bottom) return null;
+    var ys = [top - window.innerHeight * 0.25], us = [STOPS[0] - 0.08];
+    gaps.forEach(function (g, i) { var r = g.getBoundingClientRect(); ys.push(r.top + window.scrollY + r.height / 2); us.push(STOPS[i]); });
+    ys.push(bottom); us.push(STOPS[STOPS.length - 1] + 0.16);
+    for (var i = 0; i < ys.length - 1; i++) {
+      if (mid <= ys[i + 1]) {
+        var k = Math.max(0, Math.min(1, (mid - ys[i]) / (ys[i + 1] - ys[i])));
+        k = k * k * (3 - 2 * k); // ease so the camera settles at each stop
+        return us[i] + (us[i + 1] - us[i]) * k;
+      }
+    }
+    return us[us.length - 1];
   }
   window.__track = { setStop: setStop };
 
+  function applyView() {
+    if (viewWork === inWork) return;
+    viewWork = inWork;
+    var w = window.innerWidth, h = window.innerHeight, wide = w > 900;
+    if (inWork) camera.setViewOffset(w, h, 0, 0, w, h);
+    else camera.setViewOffset(w, h, offsetX, wide ? 0 : h * 0.2, w, h);
+    camera.updateProjectionMatrix();
+  }
   function resize() {
     var w = window.innerWidth, h = window.innerHeight;
     renderer.setSize(w, h, false);
@@ -181,7 +209,7 @@
     // Wide screens: push the circuit right of the headline. Narrow: lift it above the text.
     var wide = w > 900;
     offsetX = wide ? -w * 0.2 : 0;
-    camera.setViewOffset(w, h, offsetX, wide ? 0 : h * 0.2, w, h);
+    viewWork = null; applyView();
     rig.rad = w < 600 ? 25 : w < 900 ? 18 : 18.5;
     rig.basePol = wide ? 0.98 : 0.62;
     if (!rig.touched) { rig.pol = rig.basePol; if (!rig.init) rig.az = wide ? -0.5 : 1.45; }
@@ -210,7 +238,10 @@
   function onScroll() {
     var h = hero ? hero.offsetHeight : window.innerHeight;
     scrollK = Math.max(0, Math.min(1, window.scrollY / h));
-    far = window.scrollY > h * 1.6 && stop === null;
+    ride = rideFromScroll();
+    inWork = ride !== null;
+    far = window.scrollY > h * 1.6 && !inWork;
+    applyView();
     applyOpacity();
     if (reduce) render(0);
   }
@@ -235,22 +266,26 @@
     headGeo.attributes.position.needsUpdate = true;
     uniforms.uTime.value = t;
 
-    if (stop !== null) {
-      // Chase view: behind and to the side of the stop, looking along the track.
-      sampleAt(STOPS[stop], p, tg); nrm.set(-tg.z, 0, tg.x).normalize();
-      dTgt.copy(p).addScaledVector(tg, 1.2);
-      dPos.copy(p).addScaledVector(tg, -3.6).addScaledVector(nrm, 2.4); dPos.y += 2.6;
-      marker.material.opacity = 0.55 + 0.35 * Math.sin(t * 3);
-      marker.scale.setScalar(1 + 0.08 * Math.sin(t * 3));
+    if (inWork) {
+      // Chase view: low, behind and to the side of the point we're riding, looking down the track.
+      sampleAt(ride, p, tg); nrm.set(-tg.z, 0, tg.x).normalize();
+      var narrow = window.innerWidth < 700;
+      dTgt.copy(p).addScaledVector(tg, 2.0);
+      dPos.copy(p).addScaledVector(tg, narrow ? -4.4 : -3.4).addScaledVector(nrm, narrow ? 2.0 : 1.7); dPos.y += narrow ? 2.6 : 1.9;
     } else {
       var pol = clampPol(rig.pol) * (1 - scrollK * 0.6);
       var rad = rig.rad + scrollK * 3;
       dPos.set(Math.sin(rig.az) * Math.sin(pol) * rad, Math.cos(pol) * rad, Math.cos(rig.az) * Math.sin(pol) * rad);
       dTgt.set(0, -scrollK * 1.2, 0);
-      marker.material.opacity = Math.max(0, marker.material.opacity - 0.05);
     }
+    markers.forEach(function (m, i) {
+      var near = inWork ? Math.max(0, 1 - Math.abs(ride - STOPS[i]) / 0.07) : 0;
+      var target = near * (0.6 + 0.35 * Math.sin(t * 3));
+      m.material.opacity += (target - m.material.opacity) * 0.15;
+      m.scale.setScalar(1 + near * 0.25 + 0.06 * Math.sin(t * 3));
+    });
     if (!camInit || reduce) { camPos.copy(dPos); camTgt.copy(dTgt); camInit = true; }
-    else { var k = stop !== null ? 0.045 : 0.08; camPos.lerp(dPos, k); camTgt.lerp(dTgt, k); }
+    else { var k = inWork ? 0.09 : 0.06; camPos.lerp(dPos, k); camTgt.lerp(dTgt, k); }
     camera.position.copy(camPos);
     camera.lookAt(camTgt);
     renderer.render(scene, camera);
@@ -293,6 +328,7 @@
   var to;
   window.addEventListener("resize", function () { clearTimeout(to); to = setTimeout(resize, 80); });
   resize(); onScroll();
+  window.addEventListener("load", onScroll);
   root.classList.add("gl-ready");
   if (reduce) render(0); else requestAnimationFrame(loop);
 })();
