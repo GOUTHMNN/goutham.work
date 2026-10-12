@@ -24,7 +24,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="fonts/big-shoulders-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/styles.css?v=20261013">
+<link rel="stylesheet" href="css/styles.css?v=20261014">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Goutham Satheesh","url":"https://goutham.work/","jobTitle":"BEng (Hons) Artificial Intelligence student","alumniOf":{"@type":"CollegeOrUniversity","name":"Ulster University"},"address":{"@type":"PostalAddress","addressLocality":"Derry~Londonderry","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/gouthmn","https://github.com/GOUTHMNN"],"knowsAbout":["Artificial intelligence","Machine learning","Data science","Full-stack development","Python"]}
 </script>
@@ -181,36 +181,36 @@
       <div class="stop-gap" data-stop="2" aria-hidden="true"><span class="eyebrow">Stop 03 / 04</span><b>Robork</b></div>
       <article class="project reveal" data-stop="2" aria-labelledby="p3">
         <div class="project__lead">
-          <p class="project__meta"><span>2026</span><span>Solo build · TypeScript &amp; Rust</span></p>
+          <p class="project__meta"><span>2026</span><span>Solo build · TypeScript</span></p>
           <h3 id="p3" class="project__title">Robork</h3>
-          <p class="project__summary">A browser-based digital twin for prototyping robots. Wire a Raspberry Pi 5 to motors and sensors in 3D, and it catches the faults that would fry real hardware.</p>
+          <p class="project__summary">A virtual bench for robots. Design from real parts, catch the wiring mistakes that would fry hardware, run your control code against a simulated world, and only then buy the parts.</p>
           <ul class="chips" aria-label="Highlights">
             <li class="chip chip--win">Live in your browser</li>
-            <li class="chip">7 parts with real electrical limits</li>
-            <li class="chip">Deterministic Rust kernel</li>
+            <li class="chip">41 real parts, any chip via datasheet</li>
+            <li class="chip">89 tests gate every deploy</li>
           </ul>
-          <p class="project__links"><a href="https://robork.goutham.work" target="_blank" rel="noopener">Open the editor <span aria-hidden="true">↗</span></a><a href="https://github.com/GOUTHMNN/robork" target="_blank" rel="noopener">Read the code on GitHub <span aria-hidden="true">↗</span></a></p>
+          <p class="project__links"><a href="https://robork.goutham.work" target="_blank" rel="noopener">Open the bench <span aria-hidden="true">↗</span></a><a href="https://github.com/GOUTHMNN/robork" target="_blank" rel="noopener">Read the code on GitHub <span aria-hidden="true">↗</span></a></p>
         </div>
         <figure class="viz viz--flow">
-          <figcaption class="viz__title">What happens when you add a wire</figcaption>
+          <figcaption class="viz__title">From idea to "ready to buy"</figcaption>
           <ol class="flow">
-            <li><b>You wire two pins</b><span>In the 3D editor, with undo and autosave</span></li>
-            <li><b>Design check</b><span>Voltage, current, output conflicts, common ground</span></li>
-            <li class="is-key"><b>Fix is dry-run first</b><span>A proposed patch must clear the validator before it's offered</span></li>
-            <li><b>One click applies it</b><span>For example, a level shifter wired in for 5&nbsp;V into a 3.3&nbsp;V pin</span></li>
+            <li><b>Design</b><span>Arduino, ESP32, Pico, STM32, Pi or Jetson, plus drivers, motors, sensors and power</span></li>
+            <li><b>Design check</b><span>16 rules: shorts, voltages, logic levels, current budgets, grounds, buses</span></li>
+            <li class="is-key"><b>Run it</b><span>Your code drives motors, servos and sensors in a 1&nbsp;ms simulation</span></li>
+            <li><b>Ready to buy</b><span>Only after a clean check and a clean run, with a priced parts list</span></li>
           </ol>
         </figure>
         <figure class="photo photo--wide photo--shot">
-          <img src="img/robork-1600.jpg" srcset="img/robork-800.jpg 800w, img/robork-1600.jpg 1600w" sizes="(max-width: 1180px) 100vw, 1100px" width="1600" height="900" alt="The Robork editor: a parts library on the left, a Raspberry Pi 5 wired to a DC motor in the 3D workspace, and the design check panel flagging a missing common ground." loading="lazy" decoding="async">
-          <figcaption>The live editor running its built-in example: a motor wired straight to a Pi, flagged before anything is powered.</figcaption>
+          <img src="img/robork-1600.jpg" srcset="img/robork-800.jpg 800w, img/robork-1600.jpg 1600w" sizes="(max-width: 1180px) 100vw, 1100px" width="1600" height="900" alt="The Robork bench running an obstacle-avoiding car: an Arduino, motor driver, two motors, a distance sensor and a battery in 3D, with live motor speeds, currents and a scope plot below." loading="lazy" decoding="async">
+          <figcaption>The obstacle-avoiding car template running live: motor speed, current draw and battery voltage update every tick.</figcaption>
         </figure>
         <div class="case">
-          <div><h4>The problem</h4><p>Beginners learn robotics by wiring real boards and finding out what's wrong when something burns out. That's slow, expensive and puts people off.</p></div>
-          <div><h4>What I built</h4><p>A React Three Fiber editor where every part carries its real pin voltages and current limits. A validator runs on every change, and a rule-based copilot proposes fixes it has already tested. Underneath sits a Rust simulation kernel on a fixed 1&nbsp;ms tick, compiled for WebAssembly.</p></div>
-          <div><h4>The result</h4><p>A working editor anyone can open at robork.goutham.work, with a parts library, inspector, undo, autosave and project export. The kernel's tests prove two runs produce bit-for-bit identical state.</p></div>
-          <div><h4>What I learned</h4><p>An automatic fix you haven't checked is just a new bug. Every patch has to pass the same validator as the user's own wiring. The README says plainly what isn't built yet.</p></div>
+          <div><h4>The problem</h4><p>Robotics ideas get tested by buying parts and finding out what's wrong when something burns out. That's slow and expensive, and it puts people off.</p></div>
+          <div><h4>What I built</h4><p>An open part format, so any chip can be described from its datasheet. A net-based electrical model that checks every connection against real limits, with fixes it re-tests before offering. A deterministic simulator for batteries, drivers, motors, servos and sensors, running Arduino-style code in a Web Worker.</p></div>
+          <div><h4>The result</h4><p>Live at robork.goutham.work, with templates, a part builder, share links and a printable report. Every rule, model and template is covered by 89 tests that run before each deploy.</p></div>
+          <div><h4>What I learned</h4><p>A checker that cries wolf gets ignored. The first version flagged every motor as ungrounded, so I rebuilt the model around nets and power instead of pin-pair rules, and wrote tests for what it must not flag.</p></div>
         </div>
-        <p class="tags">TypeScript · React · React Three Fiber · Zustand · Rust · WebAssembly</p>
+        <p class="tags">TypeScript · React · React Three Fiber · Zustand · Web Workers · Vitest</p>
       </article>
 
       <!-- Budha PI -->
@@ -465,8 +465,8 @@
 </dialog>
 
 <script src="js/vendor/three.min.js" defer></script>
-<script src="js/scene.js?v=20261013" defer></script>
-<script src="js/pitwall.js?v=20261013" defer></script>
-<script src="js/main.js?v=20261013" defer></script>
+<script src="js/scene.js?v=20261014" defer></script>
+<script src="js/pitwall.js?v=20261014" defer></script>
+<script src="js/main.js?v=20261014" defer></script>
 </body>
 </html>
