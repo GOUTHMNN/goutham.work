@@ -83,7 +83,7 @@
     { label: "About me", hint: "Section", run: go("about") },
     { label: "Photos: in the room", hint: "Section", run: go("moments") },
     { label: "Experience and leadership", hint: "Section", run: go("experience") },
-    { label: "Open the Robork editor", hint: "Link", run: open("https://robork.goutham.work") },
+    { label: "Open the Robork editor", hint: "Link", run: open("https://robork.uk") },
     { label: "Open the trading app", hint: "Link", run: open("https://batman-ai-trading.streamlit.app") },
     { label: "Contact", hint: "Section", run: go("contact") },
     { label: "Download my CV", hint: "PDF", run: open("cv/Goutham-Satheesh-CV.pdf") },
